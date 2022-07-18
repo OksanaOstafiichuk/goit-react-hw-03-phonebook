@@ -1,6 +1,6 @@
 import { Component } from 'react';
-import { FilterInput } from 'components/Filter/Filter.styled';
-import { Button } from 'components/ContactList/ContactList.styled';
+import { FilterInput } from '../Filter/Filter.styled';
+import { Button } from '../ContacItem/ContactItem.styled';
 import { Form, FormInput } from './ContactForm.styled';
 
 export class ContactForm extends Component {

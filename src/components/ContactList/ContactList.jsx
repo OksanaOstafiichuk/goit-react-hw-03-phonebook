@@ -1,17 +1,12 @@
+import { ContactItem } from 'components/ContacItem/ContactItem';
 import PropTypes from 'prop-types';
-import { ImUserCheck } from 'react-icons/im';
-import { List, Item, Button } from './ContactList.styled';
+import { List } from './ContactList.styled';
 
 export const ContactList = ({ contacts, onDelete }) => {
   return (
     <List>
-      {contacts.map(({ name, number, id }) => (
-        <Item key={id}>
-          <ImUserCheck color="385898" /> - {name}: {number}
-          <Button type="button" onClick={() => onDelete(id)}>
-            Delete
-          </Button>
-        </Item>
+      {contacts.map(contact => (
+        <ContactItem key={contact.id} contact={contact} onDelete={onDelete} />
       ))}
     </List>
   );
@@ -20,10 +15,7 @@ export const ContactList = ({ contacts, onDelete }) => {
 ContactList.propTypes = {
   contacts: PropTypes.arrayOf(
     PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
       id: PropTypes.string.isRequired,
     }).isRequired
   ),
-  onDelete: PropTypes.func.isRequired,
 };
